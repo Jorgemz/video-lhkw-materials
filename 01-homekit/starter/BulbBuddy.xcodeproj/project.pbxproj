@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09FBF3832635E5AC00C88ECB /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4989A70925A33AEA004E2362 /* HomeKit.framework */; };
 		0ABDA12B25A2DF6C007FBCDE /* Bulb Buddy.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0ABDA12A25A2DF6C007FBCDE /* Bulb Buddy.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0ABDA13025A2DF6D007FBCDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ABDA12F25A2DF6D007FBCDE /* Assets.xcassets */; };
 		0ABDA13725A2DF6E007FBCDE /* BulbBuddy WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0ABDA13625A2DF6E007FBCDE /* BulbBuddy WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -80,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09FBF3832635E5AC00C88ECB /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +424,7 @@
 				CODE_SIGN_ENTITLEMENTS = "BulbBuddy WatchKit Extension/BulbBuddy WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4AQJ37X836;
+				DEVELOPMENT_TEAM = 42E64L44C7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "BulbBuddy WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -447,7 +449,7 @@
 				CODE_SIGN_ENTITLEMENTS = "BulbBuddy WatchKit Extension/BulbBuddy WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4AQJ37X836;
+				DEVELOPMENT_TEAM = 42E64L44C7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "BulbBuddy WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
