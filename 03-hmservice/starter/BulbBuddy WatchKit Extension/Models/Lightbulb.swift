@@ -30,6 +30,30 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
+import HomeKit
+import struct SwiftUI.Binding
 
+struct Lightbulb {
+  @Binding var isOn: Bool
+}
 
 // MARK: - internal
+extension Lightbulb {
+  
+  init?(_ service: HMService) {
+    func characteristic(name: String) -> HMCharacteristic? {
+      service.characteristics
+        .first { $0.metadata?.manufacturerDescription == name }
+    }
+    
+    guard
+      service.serviceType == HMServiceTypeLightbulb,
+      let isOn = characteristic(name: "Power State")
+    else { return nil }
+    
+    _isOn = .init(
+      get: { isOn.value as? Bool ?? .init() },
+      set: { isOn.writeValue( $0 ) {_ in }}
+    )
+  }
+}

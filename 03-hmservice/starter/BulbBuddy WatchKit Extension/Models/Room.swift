@@ -34,10 +34,22 @@ import HomeKit
 
 final class Room: Identifiable, ObservableObject {
   let name: String
-
-  init(name: String) {
-    self.name = name
+  
+  @Published var lightbulbsAreOn: Bool {
+    didSet {
+      lightbulbs
+        .filter {  $0.isOn != lightbulbsAreOn }
+        .forEach { $0.isOn = lightbulbsAreOn}
+    }
   }
+
+  init(name: String, lightbulbs: [Lightbulb] = [] ) {
+    self.name = name
+    self.lightbulbs = lightbulbs
+    self.lightbulbsAreOn = lightbulbs.allSatisfy(\.isOn)
+  }
+  
+  private let lightbulbs: [Lightbulb]
 }
 
 // MARK: - internal
@@ -57,7 +69,15 @@ extension Room {
 // MARK: - private
 private extension Room {
   convenience init?(room: HMRoom) {
-    self.init(name: room.name)
+    let lightbulbs =
+      room.accessories
+      .flatMap(\.services)
+      .compactMap(Lightbulb.init)
+    
+    guard !lightbulbs.isEmpty
+    else { return nil }
+    
+    self.init(name: room.name, lightbulbs: lightbulbs)
   }
 }
 
